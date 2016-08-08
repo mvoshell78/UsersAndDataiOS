@@ -1,0 +1,6 @@
+framework module Pods_UsersAndDataiOSTests {
+  umbrella header "Pods-UsersAndDataiOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
