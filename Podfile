@@ -4,6 +4,7 @@
 use_frameworks!
 pod 'Firebase', '>= 2.5.0'
 pod 'Firebase/Auth'
+pod 'Firebase/Database'
 
 
 target 'UsersAndDataiOS' do
