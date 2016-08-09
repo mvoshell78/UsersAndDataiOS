@@ -10,8 +10,8 @@ import Foundation
 
 class GroceryItem
 {
-    var groceryItem : String = "" ;
-    var qty : Int = 0;
+    var mGroceryItem : String = "" ;
+    var mQty : Int = 0;
   
     init()
     {

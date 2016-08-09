@@ -14,8 +14,8 @@ class ListViewController: UIViewController {
     @IBOutlet weak var UsernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-    var alertController  = UIAlertController()
-    var defaultAction = UIAlertAction()
+//    var alertController  = UIAlertController()
+//    var defaultAction = UIAlertAction()
   
 
     override func viewDidLoad() {
@@ -39,9 +39,10 @@ class ListViewController: UIViewController {
         
         
         if self.UsernameField.text == "" || self.passwordField.text == ""{
-          self.alertController  = UIAlertController(title: "Oops", message: "Enter a vaild Username and Password", preferredStyle: .Alert)
-            self.defaultAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-            self.alertController.addAction(defaultAction)
+            let alertController  = UIAlertController(title: "Oops", message: "Enter a vaild Username and Password", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            presentViewController(alertController, animated: true, completion: nil)
             
             
         } else {
@@ -56,9 +57,10 @@ class ListViewController: UIViewController {
                     })
                     
                 } else {
-                    self.alertController  = UIAlertController(title: "Oops", message: error?.localizedDescription, preferredStyle: .Alert)
+                    let alertController  = UIAlertController(title: "Oops", message: error?.localizedDescription, preferredStyle: .Alert)
                     let defaultAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-                    self.alertController.addAction(defaultAction)
+                    alertController.addAction(defaultAction)
+                    self.presentViewController(alertController, animated: true, completion: nil)
                    
                 }
                 
@@ -75,6 +77,7 @@ class ListViewController: UIViewController {
             let alertController  = UIAlertController(title: "Oops", message: "Enter a vaild Username and Password", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
             alertController.addAction(defaultAction)
+            presentViewController(alertController, animated: true, completion: nil)
            
             
         } else {
@@ -91,6 +94,7 @@ class ListViewController: UIViewController {
                     let alertController  = UIAlertController(title: "Oops", message: error?.localizedDescription, preferredStyle: .Alert)
                     let defaultAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
                     alertController.addAction(defaultAction)
+                    self.presentViewController(alertController, animated: true, completion: nil)
                     
                 }
             })
