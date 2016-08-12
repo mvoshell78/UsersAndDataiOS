@@ -23,6 +23,7 @@ var groceryListArray : [GroceryItem] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         
         
         if (FIRAuth.auth()?.currentUser) == nil{
@@ -77,6 +78,7 @@ var groceryListArray : [GroceryItem] = [];
         }
     }
     
+   
     @IBAction func logoutButton(sender: AnyObject) {
         
         try! FIRAuth.auth()?.signOut()
@@ -105,38 +107,9 @@ var groceryListArray : [GroceryItem] = [];
                     newGroceryItem.mQty = newInt
                     groceryListArray.append(newGroceryItem)
                     
-                    let currentUser = FIRAuth.auth()?.currentUser
-                    let uuid = currentUser!.uid
-                    
-                    let ref = FIRDatabase.database().reference()
-                    
-                     //ref.child(uuid).setValue(newGrocery)
-                    if (currentUser?.uid != nil){
-                        
-                        var newArray : [AnyObject] = []
-                        
-
-                        for index in 0...groceryListArray.count - 1{
-                            print("count " + String(groceryListArray.count))
-                            
-                            let itemName = groceryListArray[index].mGroceryItem
-                            let itemQty = groceryListArray[index].mQty
-                            
-                            let dict = ["mQty" : itemQty, "mGroceryItem" : itemName]
-                        
-                           newArray.append(dict)
-                      
-                        }
-                        
-                    
-                       ref.child(uuid).setValue(newArray)
-                        itemTextField.text = ""
-                        qtyTextField.text = ""
-                    
-                    
-                }
-                
-                
+                    writeToTable()
+                    itemTextField.text = ""
+                    qtyTextField.text = ""
                 }
                 
             }
@@ -215,35 +188,40 @@ var groceryListArray : [GroceryItem] = [];
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete{
-            let ref = FIRDatabase.database().reference()
-            let currentUser = FIRAuth.auth()?.currentUser
-            let uuid = currentUser!.uid
             groceryListArray.removeAtIndex(indexPath.row)
-            
-            if (currentUser?.uid != nil){
-                
-                var newArray : [AnyObject] = []
-                
-                
-                for index in 0...groceryListArray.count - 1{
-                    print("count " + String(groceryListArray.count))
-                    
-                    let itemName = groceryListArray[index].mGroceryItem
-                    let itemQty = groceryListArray[index].mQty
-                    
-                    let dict = ["mQty" : itemQty, "mGroceryItem" : itemName]
+            writeToTable()
 
-                    newArray.append(dict)
-                    
-                }
+            
+        }
+    }
+    
+    func writeToTable(){
+        let ref = FIRDatabase.database().reference()
+        let currentUser = FIRAuth.auth()?.currentUser
+        let uuid = currentUser!.uid
+        
+        
+        if (currentUser?.uid != nil){
+            
+            var newArray : [AnyObject] = []
+            
+            if groceryListArray.count != 0{
+            for index in 0...groceryListArray.count - 1{
+                print("count " + String(groceryListArray.count))
                 
+                let itemName = groceryListArray[index].mGroceryItem
+                let itemQty = groceryListArray[index].mQty
                 
-                ref.child(uuid).setValue(newArray)
+                let dict = ["mQty" : itemQty, "mGroceryItem" : itemName]
                 
-                
+                newArray.append(dict)
                 
             }
-
+            
+            }
+            ref.child(uuid).setValue(newArray)
+            
+            
             
         }
     }
