@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
 var groceryListArray : [GroceryItem] = [];
     
+    
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var qtyTextField: UITextField!
@@ -24,12 +25,12 @@ var groceryListArray : [GroceryItem] = [];
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
+     FIRDatabase.database().persistenceEnabled = true
         
         if (FIRAuth.auth()?.currentUser) == nil{
             
             dispatch_async(dispatch_get_main_queue(), {
-               self.performSegueWithIdentifier("listSegue", sender: nil)
+               self.performSegueWithIdentifier("loginSegue", sender: nil)
             })
             
           
@@ -39,6 +40,17 @@ var groceryListArray : [GroceryItem] = [];
         }
         
        
+    }
+    override func viewDidAppear(animated: Bool) {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            
+            
+            
+        } else {
+            print("Internet connection FAILED")
+            alertTheUser("A connection to Firebase could not be established. You can continue to use the app and when one is establisehd your data will be synced automatically.")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,26 +85,45 @@ var groceryListArray : [GroceryItem] = [];
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if segue.identifier == "listSegue" {
+        if segue.identifier == "loginSegue" {
             
+        }
+        
+        if segue.identifier == "listSegue" {
+            let groceryList : updateViewController = segue.destinationViewController as! updateViewController
+            let indexPath : NSIndexPath? = myTableView.indexPathForSelectedRow;
+
+            groceryList.groceryListArray = groceryListArray
+            groceryList.indexPath = indexPath
+
         }
     }
     
    
     @IBAction func logoutButton(sender: AnyObject) {
         
-        try! FIRAuth.auth()?.signOut()
-        if (FIRAuth.auth()?.currentUser) == nil{
+        if Reachability.isConnectedToNetwork() == true {
+            try! FIRAuth.auth()?.signOut()
+            if (FIRAuth.auth()?.currentUser) == nil{
+                
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.performSegueWithIdentifier("loginSegue", sender: nil)
+                })
+                
+                
+            } else {
+                
+            }
             
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                self.performSegueWithIdentifier("listSegue", sender: nil)
-            })
             
             
         } else {
-            
+           
+            alertTheUser("An active connection is required to logout, check your internet connection and try again.")
         }
+        
+        
         
     }
     
@@ -124,11 +155,21 @@ var groceryListArray : [GroceryItem] = [];
         getThatData()
     }
     
+    @IBAction func upDateButton ( segue : UIStoryboardSegue){
+        if let sourceViewController = segue.sourceViewController as? updateViewController {
+        
+            groceryListArray = sourceViewController.groceryListArray
+            
+            writeToTable()
+        }
+    }
+    
     
     func getThatData(){
         let ref = FIRDatabase.database().reference()
         let currentUser = FIRAuth.auth()?.currentUser
         
+       
      
       
         
@@ -224,6 +265,13 @@ var groceryListArray : [GroceryItem] = [];
             
             
         }
+    }
+    
+    func alertTheUser(message: String){
+        let alertController  = UIAlertController(title: "No Firebase Connection", message: message, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        presentViewController(alertController, animated: true, completion: nil)
     }
 }
 

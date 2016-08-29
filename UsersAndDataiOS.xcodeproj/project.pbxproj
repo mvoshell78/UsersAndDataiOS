@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A33EAAE0A3ECE104A3614BD /* Pods_UsersAndDataiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D95D7967B11FA15925C6AC3 /* Pods_UsersAndDataiOSUITests.framework */; };
+		8643DE791D6B454F00B5E85E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643DE781D6B454F00B5E85E /* Reachability.swift */; };
+		8643DE7B1D6B521800B5E85E /* updateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643DE7A1D6B521800B5E85E /* updateViewController.swift */; };
 		86A4AD9F1D58B64000CB8CC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4AD9E1D58B64000CB8CC1 /* AppDelegate.swift */; };
 		86A4ADA11D58B64000CB8CC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4ADA01D58B64000CB8CC1 /* ViewController.swift */; };
 		86A4ADA41D58B64000CB8CC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86A4ADA21D58B64000CB8CC1 /* Main.storyboard */; };
@@ -18,7 +20,7 @@
 		86A4ADCD1D58B87600CB8CC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86A4ADCC1D58B87600CB8CC1 /* GoogleService-Info.plist */; };
 		86A4ADCF1D58E58D00CB8CC1 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4ADCE1D58E58D00CB8CC1 /* ListViewController.swift */; };
 		86A4ADD11D590F4900CB8CC1 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4ADD01D590F4900CB8CC1 /* GroceryItem.swift */; };
-		86A4AE0F1D5B732D00CB8CC1 /* ext.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A4AE0E1D5B732D00CB8CC1 /* ext.png */; };
+		86A4AE111D5FC88200CB8CC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86A4AE101D5FC88200CB8CC1 /* GoogleService-Info.plist */; };
 		D19A0B1A51C9D3D7F3FEC642 /* Pods_UsersAndDataiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5E9E08BB58B476388CD8F0A /* Pods_UsersAndDataiOSTests.framework */; };
 		DE2067F4ECB77AB6BDE9FE51 /* Pods_UsersAndDataiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D191975C2356BCAA5CF18F1 /* Pods_UsersAndDataiOS.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,8 @@
 		6580E6EE7DF0E433F08C7EC0 /* Pods-UsersAndDataiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersAndDataiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-UsersAndDataiOS/Pods-UsersAndDataiOS.release.xcconfig"; sourceTree = "<group>"; };
 		698C985C295CC60EDE04F939 /* Pods-UsersAndDataiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersAndDataiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UsersAndDataiOSTests/Pods-UsersAndDataiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7394601670A3283DBBB91901 /* Pods-UsersAndDataiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersAndDataiOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UsersAndDataiOSUITests/Pods-UsersAndDataiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8643DE781D6B454F00B5E85E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		8643DE7A1D6B521800B5E85E /* updateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateViewController.swift; sourceTree = "<group>"; };
 		86A4AD9B1D58B64000CB8CC1 /* UsersAndDataiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsersAndDataiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A4AD9E1D58B64000CB8CC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86A4ADA01D58B64000CB8CC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +68,7 @@
 		86A4ADCC1D58B87600CB8CC1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		86A4ADCE1D58E58D00CB8CC1 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		86A4ADD01D590F4900CB8CC1 /* GroceryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
-		86A4AE0E1D5B732D00CB8CC1 /* ext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ext.png; path = ../../../Downloads/ext.png; sourceTree = "<group>"; };
+		86A4AE101D5FC88200CB8CC1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B21164D9F511121D44C5A59D /* Pods-UsersAndDataiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersAndDataiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UsersAndDataiOS/Pods-UsersAndDataiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E5E9E08BB58B476388CD8F0A /* Pods_UsersAndDataiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UsersAndDataiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -125,13 +129,15 @@
 				86A4AD9E1D58B64000CB8CC1 /* AppDelegate.swift */,
 				86A4ADA01D58B64000CB8CC1 /* ViewController.swift */,
 				86A4ADCE1D58E58D00CB8CC1 /* ListViewController.swift */,
+				8643DE7A1D6B521800B5E85E /* updateViewController.swift */,
 				86A4ADA21D58B64000CB8CC1 /* Main.storyboard */,
 				86A4ADA51D58B64000CB8CC1 /* Assets.xcassets */,
 				86A4ADA71D58B64000CB8CC1 /* LaunchScreen.storyboard */,
 				86A4ADCC1D58B87600CB8CC1 /* GoogleService-Info.plist */,
+				86A4AE101D5FC88200CB8CC1 /* GoogleService-Info.plist */,
 				86A4ADAA1D58B64000CB8CC1 /* Info.plist */,
-				86A4AE0E1D5B732D00CB8CC1 /* ext.png */,
 				86A4ADD01D590F4900CB8CC1 /* GroceryItem.swift */,
+				8643DE781D6B454F00B5E85E /* Reachability.swift */,
 			);
 			path = UsersAndDataiOS;
 			sourceTree = "<group>";
@@ -296,7 +302,7 @@
 				86A4ADCD1D58B87600CB8CC1 /* GoogleService-Info.plist in Resources */,
 				86A4ADA61D58B64000CB8CC1 /* Assets.xcassets in Resources */,
 				86A4ADA41D58B64000CB8CC1 /* Main.storyboard in Resources */,
-				86A4AE0F1D5B732D00CB8CC1 /* ext.png in Resources */,
+				86A4AE111D5FC88200CB8CC1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,8 +451,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				86A4ADA11D58B64000CB8CC1 /* ViewController.swift in Sources */,
+				8643DE7B1D6B521800B5E85E /* updateViewController.swift in Sources */,
 				86A4AD9F1D58B64000CB8CC1 /* AppDelegate.swift in Sources */,
 				86A4ADD11D590F4900CB8CC1 /* GroceryItem.swift in Sources */,
+				8643DE791D6B454F00B5E85E /* Reachability.swift in Sources */,
 				86A4ADCF1D58E58D00CB8CC1 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
